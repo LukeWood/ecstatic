@@ -49,8 +49,9 @@ defmodule Ecstatic.Entity do
       %Component{} -> true
       _ -> false
     end)
+    
     build(entity, Enum.concat(init, non_init))
-    Store.Ets.save_entity(entity)
+      |> Store.Ets.save_entity()
   end
 
   defp build(entity, components) do
